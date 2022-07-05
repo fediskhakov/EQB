@@ -251,6 +251,7 @@ end
 close(h); 
 
 %% 2. Plot Naive vs. sophisticated Laffer curves 
+figure
 f=plot(xx, yy1, '-x', xx,yy3,'-or', 'LineWidth', 2.0);  xline(1.0, ':'); yline(0.0, ':'); 
 legend('Naive', 'Equilibrium');
 graphs.set_fig_layout_post(f); title('Naive, realized'); 

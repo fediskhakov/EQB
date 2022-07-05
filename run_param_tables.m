@@ -11,6 +11,7 @@ load('results/estimation/estimation_data.mat');
 % load parameter estimates
 load('results/estimation/mle_converged.mat');
 
+
 DOSAVE = 1;
 DOLATEX = 1; 
 
@@ -32,9 +33,17 @@ pn.u_0 = '$u_{\\tau,j,0} : $ intercept in indirect utility for car ownership';
 pn.u_a = '$u_{\\tau,j,1} : $ coefficient on age in indirect utility for car ownership';
 
 
-%% Print parameter esimates
 mp=mp_mle;
 
+%% summary stats for cars
+if DOSAVE 
+    nam = 'results/tables/sumstats_cars.tex';
+else
+    nam = '';
+end
+data.sumstat_table_cars(dta, car, mp, nam);
+
+%% Print parameter esimates
 % 1st stage driving estimates 
 if DOSAVE 
     nam = 'results/tables/tab_est_driving.tex';
